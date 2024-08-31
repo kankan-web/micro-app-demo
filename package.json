@@ -1,0 +1,16 @@
+{
+  "name": "micro-app-demo",
+  "private": true,
+  "dependencies": {
+    "@micro-app-demo/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "lerna": "^8.1.8",
+    "prettier": "^3.3.3",
+    "vite": "^5.4.2"
+  },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=8"
+  }
+}
