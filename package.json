@@ -2,7 +2,8 @@
 	"name": "micro-app-demo",
 	"private": true,
 	"scripts": {
-		"dev:vue3-main": "lerna exec \"npm run dev\" --scope @micro-app-demo/vue3-main"
+		"qiankun-demo:start": "lerna exec \"npm run dev\" --scope @qiankun-demo/vue3-main",
+		"qiankun-demo:dev": "pnpm --filter \"@qiankun-demo/*\" run dev"
 	},
 	"devDependencies": {
 		"@micro-app-demo/cli": "workspace:^",

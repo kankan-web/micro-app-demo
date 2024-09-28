@@ -1,17 +1,17 @@
-### 目录结构
+# 微前端框架示例汇总
+
+## qiankun demo
+
+```bash
+└── qiankun-demo
+    ├── react-child # react18子应用
+    ├── vite-child # react18-vite子应用
+    ├── vue2-child # vue2子应用
+    └── vue3-main # vue3主应用
 ```
-├── main
-│   ├── vue3-demo：根据vue-cli构建而成的vue3项目
-│   └── vite-vue3-demo：根据vite构建而成的vue3项目
-│   ├── react-demo：根据create-reacte-app构建而成的react项目
-│   └── vite-react-demo：根据vite构建而成的react项目
-├── child
-│   ├── vue3-main：根据vue-cli构建而成的vue3项目
-│   └── react-main：根据create-reacte-app构建而成的react项目
-├── packages
-│   ├── utils:存放公共方法
-```
+
 ### git提交规范
+
 参考 vue 规范 (Angular)
 
 feat 增加新功能
