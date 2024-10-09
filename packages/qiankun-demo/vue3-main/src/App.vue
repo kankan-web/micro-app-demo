@@ -1,14 +1,7 @@
-<script setup lang="ts">
-import zhCn from "element-plus/es/locale/lang/zh-cn";
-const isCollapse = ref(false);
-const handleOpen = () => {};
-const handleClose = () => {};
-</script>
-
 <template>
   <el-config-provider lang="zhCh">
     <el-container>
-      <el-aside width="200px">
+      <el-aside width="250" class="sider">
         <div class="logo">
           <template v-if="!isCollapse">当前：qiankun-vue3主应用</template>
         </div>
@@ -18,58 +11,76 @@ const handleClose = () => {};
           :collapse="isCollapse"
           @open="handleOpen"
           @close="handleClose"
+          background-color="#001529"
+          text-color="#ffffffA6"
+          active-text-color="#fff"
         >
-          <el-sub-menu index="1">
-            <template #title>
-              <el-icon><location /></el-icon>
-              <span>Navigator One</span>
+          <template v-for="item in menuList" :key="item.meta?.key">
+            <template v-if="item.children && item.children.length > 0">
+              <SubMenu
+                :menu-info="item"
+                :key="item.meta?.key as string"
+              ></SubMenu>
             </template>
-            <el-menu-item-group>
-              <template #title><span>Group One</span></template>
-              <el-menu-item index="1-1">item one</el-menu-item>
-              <el-menu-item index="1-2">item two</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="Group Two">
-              <el-menu-item index="1-3">item three</el-menu-item>
-            </el-menu-item-group>
-            <el-sub-menu index="1-4">
-              <template #title><span>item four</span></template>
-              <el-menu-item index="1-4-1">item one</el-menu-item>
-            </el-sub-menu>
-          </el-sub-menu>
-          <el-menu-item index="2">
-            <el-icon><icon-menu /></el-icon>
-            <template #title>Navigator Two</template>
-          </el-menu-item>
-          <el-menu-item index="3" disabled>
-            <el-icon><document /></el-icon>
-            <template #title>Navigator Three</template>
-          </el-menu-item>
-          <el-menu-item index="4">
-            <el-icon><setting /></el-icon>
-            <template #title>Navigator Four</template>
-          </el-menu-item>
+            <template v-else>
+              <el-menu-item :index="item.meta?.key as string">
+                {{ item.name }}
+              </el-menu-item>
+            </template>
+          </template>
         </el-menu>
       </el-aside>
       <el-container>
         <el-header>Header</el-header>
-        <el-main>Main</el-main>
+        <el-main>
+          <div class="main">main</div>
+        </el-main>
       </el-container>
     </el-container>
   </el-config-provider>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<script setup lang="ts">
+import { useMenuStore } from "@/stores/menu";
+import zhCn from "element-plus/es/locale/lang/zh-cn";
+const { menuList, flattenMenuList } = useMenuStore();
+const isCollapse = ref(false);
+const handleOpen = () => {};
+const handleClose = () => {};
+</script>
+
+<style scoped lang="scss">
+.sider {
+  overflow: auto;
+  height: 100vh;
+  background-color: #001529;
+  color: #fff;
+  .logo {
+    height: 32px;
+    line-height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+  }
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .logo.vue:hover {
+    filter: drop-shadow(0 0 2em #42b883aa);
+  }
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.el-menu {
+  border-right: none;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.el-main {
+  background-color: #f0f2f5;
+  .main {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+  }
 }
 </style>
