@@ -1,22 +1,28 @@
 <template>
-  <el-sub-menu :index="menuInfo.meta.key as string">
-    <template #title>{{ menuInfo.name }}</template>
-    <template v-for="item in menuInfo.children" :key="item.meta.key">
-      <template v-if="item.children">
-        <sub-menu :menu-info="item" :key="item.meta.key"></sub-menu>
-      </template>
-      <template v-else>
-        <el-menu-item :index="item.meta.key">{{ item.name }}</el-menu-item>
-      </template>
-    </template>
-  </el-sub-menu>
+  <template v-for="subItem in menuList" :key="subItem.path">
+    <el-sub-menu v-if="subItem.children?.length" :index="String(subItem.key)">
+      <template #title>{{ subItem.name }}</template>
+      <SubMenu :menu-list="subItem.children" />
+    </el-sub-menu>
+    <el-menu-item
+      v-else
+      :index="String(subItem.key)"
+      @click="handleClickMenu(subItem)"
+    >
+      {{ subItem.name }}</el-menu-item
+    >
+  </template>
 </template>
 <script setup lang="ts">
-defineProps({
-  menuInfo: {
-    type: Object,
-    default: () => ({}),
-  },
-});
+import type { Menu } from "@/data/menuData";
+defineProps<{
+  menuList: Menu[];
+}>();
+const router = useRouter();
+const handleClickMenu = (item: Menu) => {
+  if (item.path) {
+    router.push(item.path);
+  }
+};
 </script>
 <style lang=""></style>
