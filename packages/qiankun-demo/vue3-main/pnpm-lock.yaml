@@ -21,6 +21,9 @@ importers:
         specifier: ^4.4.5
         version: 4.4.5(vue@3.5.10(typescript@5.6.2))
     devDependencies:
+      '@iconify-json/ep':
+        specifier: ^1.2.2
+        version: 1.2.2
       '@rushstack/eslint-patch':
         specifier: ^1.10.4
         version: 1.10.4
@@ -62,7 +65,7 @@ importers:
         version: 0.19.3(@vue/compiler-sfc@3.5.10)
       unplugin-vue-components:
         specifier: ^0.27.4
-        version: 0.27.4(@babel/parser@7.25.6)(rollup@4.22.5)(vue@3.5.10(typescript@5.6.2))
+        version: 0.27.4(@babel/parser@7.25.8)(rollup@4.22.5)(vue@3.5.10(typescript@5.6.2))
       vite:
         specifier: ^5.4.1
         version: 5.4.8(sass@1.79.4)
@@ -495,6 +498,9 @@ packages:
   '@humanwhocodes/retry@0.3.0':
     resolution: {integrity: sha512-d2CGZR2o7fS6sWB7DG/3a95bGKQyHMACZ5aW8qGkkqQpUoZV6C0X7Pc7l4ZNMZkfNBf4VWNe9E1jRsf0G146Ew==}
     engines: {node: '>=18.18'}
+
+  '@iconify-json/ep@1.2.2':
+    resolution: {integrity: sha512-/IH1GjQKH5uK7lQAOjwPxdjkU98OWUWnHYCdg/EkeebBKEteotaOMeEz5pR1egqMcI7zPFdFBTcGyCHla1ddQw==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -2695,6 +2701,10 @@ snapshots:
 
   '@humanwhocodes/retry@0.3.0': {}
 
+  '@iconify-json/ep@1.2.2':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify/types@2.0.0': {}
 
   '@iconify/utils@2.1.33':
@@ -4439,7 +4449,7 @@ snapshots:
       - supports-color
       - webpack-sources
 
-  unplugin-vue-components@0.27.4(@babel/parser@7.25.6)(rollup@4.22.5)(vue@3.5.10(typescript@5.6.2)):
+  unplugin-vue-components@0.27.4(@babel/parser@7.25.8)(rollup@4.22.5)(vue@3.5.10(typescript@5.6.2)):
     dependencies:
       '@antfu/utils': 0.7.10
       '@rollup/pluginutils': 5.1.2(rollup@4.22.5)
@@ -4453,7 +4463,7 @@ snapshots:
       unplugin: 1.14.1
       vue: 3.5.10(typescript@5.6.2)
     optionalDependencies:
-      '@babel/parser': 7.25.6
+      '@babel/parser': 7.25.8
     transitivePeerDependencies:
       - rollup
       - supports-color

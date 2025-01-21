@@ -8,6 +8,10 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ElAside: typeof import('element-plus/es')['ElAside']
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElC: typeof import('element-plus/es')['ElC']
+    ElCo: typeof import('element-plus/es')['ElCo']
+    ElCol: typeof import('element-plus/es')['ElCol']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElHeader: typeof import('element-plus/es')['ElHeader']
@@ -16,10 +20,18 @@ declare module 'vue' {
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
+    ElRow: typeof import('element-plus/es')['ElRow']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     HelloWorld: typeof import('./../components/HelloWorld.vue')['default']
+    IEpAvatar: typeof import('~icons/ep/avatar')['default']
+    IEpExpand: typeof import('~icons/ep/expand')['default']
+    IEpFold: typeof import('~icons/ep/fold')['default']
+    IEpGrid: typeof import('~icons/ep/grid')['default']
+    IEpMenu: typeof import('~icons/ep/menu')['default']
+    IEpStarFilled: typeof import('~icons/ep/star-filled')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SubMenu: typeof import('./../components/SubMenu.vue')['default']
+    SvgIcon: typeof import('./../components/SvgIcon.vue')['default']
   }
 }
