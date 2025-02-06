@@ -7,6 +7,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Count: typeof import('../components/NumCounter.vue')['default']
+    Counter: typeof import('../components/NumCounter.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElC: typeof import('element-plus/es')['ElC']
@@ -40,6 +42,8 @@ declare module 'vue' {
     IEpGrid: typeof import('~icons/ep/grid')['default']
     IEpMenu: typeof import('~icons/ep/menu')['default']
     IEpStarFilled: typeof import('~icons/ep/star-filled')['default']
+    MessageTrigger: typeof import('./../components/MessageTrigger.vue')['default']
+    NumCounter: typeof import('./../components/NumCounter.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SubMenu: typeof import('./../components/SubMenu.vue')['default']

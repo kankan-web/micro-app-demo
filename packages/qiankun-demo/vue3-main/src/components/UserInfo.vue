@@ -10,17 +10,17 @@
   <el-form :model="formData" :disabled="!isEdit" ref="formElRef" :rules="rules">
     <el-row :gutter="20">
       <el-col :span="8">
-        <el-form-item label="UserName">
+        <el-form-item label="UserName" prop="name">
           <el-input v-model="formData.name" />
         </el-form-item>
       </el-col>
       <el-col :span="8">
-        <el-form-item label="Age">
+        <el-form-item label="Age" prop="age">
           <el-input-number v-model="formData.age"></el-input-number>
         </el-form-item>
       </el-col>
       <el-col :span="8">
-        <el-form-item label="Gender">
+        <el-form-item label="Gender" prop="gender">
           <el-select v-model="formData.gender" placeholder="请选择">
             <el-option
               v-for="item in genders"
@@ -34,7 +34,7 @@
     </el-row>
     <el-row>
       <el-col>
-        <el-form-item label="phone">
+        <el-form-item label="phone" prop="phone">
           <el-input v-model="formData.phone" placeholder="请输入"></el-input>
         </el-form-item>
       </el-col>
