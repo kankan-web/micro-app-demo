@@ -14,6 +14,7 @@ const router = createRouter({
 // 是否已经加载初始化的数据
 let loadedInitData = false;
 
+//前置路由守卫
 router.beforeEach(async (to, from, next) => {
   const { addRoutes } = useMenuStore();
   const { setUser } = useUserStore();

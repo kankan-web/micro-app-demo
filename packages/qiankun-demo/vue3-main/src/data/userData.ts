@@ -7,7 +7,7 @@ export interface User {
 
 export const user: User = {
   name: "张三",
-  gender: "男",
+  gender: "male",
   age: 12,
   phone: "10086",
 };
