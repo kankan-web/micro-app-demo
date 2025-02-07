@@ -53,6 +53,7 @@
         </el-row>
       </el-header>
       <el-main>
+        <div id="child-app"></div>
         <router-view v-slot="{ Component }">
           <component :is="Component" />
         </router-view>

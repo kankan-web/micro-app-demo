@@ -1,6 +1,6 @@
 import { useMenuStore } from "@/stores/menu";
 import { useUserStore } from "@/stores/user";
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import { user as userData } from "@/data/userData";
 
 import type { MicroApp } from "qiankun";
@@ -11,7 +11,7 @@ import { setMicroAppLoading } from "@/utils/microAppLoading";
 
 // 创建路由实例
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL), // 使用hash模式
   routes: [
     {
       path: "/",
@@ -29,6 +29,7 @@ let lastHash = "";
 
 // 前置路由守卫
 router.beforeEach(async (to, from, next) => {
+  debugger;
   const { addRoutes } = useMenuStore();
   const { setUser } = useUserStore();
   if (!loadedInitData) {
@@ -60,12 +61,13 @@ let mounting = false; // 标记是否正在挂载微应用
 // 后置路由守卫，作用是根据：当前的hash值，判断是否需要挂载微应用
 //触发时机：在路由导航完成后，即在afterEach钩子中
 router.afterEach(async () => {
+  debugger;
   const { apps } = useAppStore();
   const { user } = useUserStore();
   lastHash = location.hash; // 更新上次的hash
   const app = apps.find((item) => lastHash.startsWith(item.activeRule));
   let microApp;
-
+  //手动加载子应用
   if (app) {
     const name = app.name;
     if (microAppMap.has(name)) {

@@ -7,7 +7,6 @@ const CssIsolation = lazy(() => import('@/views/CssIsolation'))
 const NavigateView = lazy(() => import('@/views/NavigateView'))
 const MicroAppView = lazy(() => import('@/views/MicroAppView'))
 const TabView = lazy(() => import('@/views/TabView'))
-
 const basename = window.__POWERED_BY_QIANKUN__ ? '/reactApp' : '/'
 
 const routes: RouteObject[] = [

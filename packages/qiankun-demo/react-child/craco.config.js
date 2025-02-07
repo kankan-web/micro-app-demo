@@ -26,6 +26,7 @@ const config = {
 				...webpackConfig.output,
 				library: `${name}-[name]`,
 				libraryTarget: 'umd',
+				//webpack5需要吧json
 				chunkLoadingGlobal: `webpackJsonp_${name}`,
 				globalObject: 'window'
 			}
