@@ -5,8 +5,8 @@ import reportWebVitals from './reportWebVitals'
 import { ConfigProvider, Spin } from 'antd'
 import { RouterProvider } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import router from '@/router'
 import { store } from '@/stores/store'
+import { router } from '@/router'
 
 const container = document.getElementById('root')!
 

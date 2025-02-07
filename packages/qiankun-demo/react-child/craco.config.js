@@ -1,3 +1,4 @@
+const { name } = require('./package')
 const path = require('path')
 const CracoLessPlugin = require('craco-less')
 
@@ -20,24 +21,32 @@ const config = {
 		alias: {
 			'@': path.resolve('src')
 		},
-		configure: (webpackConfig, { env, paths }) => {
+		configure: (webpackConfig, { paths }) => {
 			webpackConfig.output = {
 				...webpackConfig.output,
-				clean: process.env.NODE_ENV === 'production',
-				libraryTarget: 'umd', //需要配置umd规范
-				globalObject: 'window' //修改不规范的代码格式，避免逃逸沙箱
+				library: `${name}-[name]`,
+				libraryTarget: 'umd',
+				chunkLoadingGlobal: `webpackJsonp_${name}`,
+				globalObject: 'window'
 			}
 			return webpackConfig
 		}
 	},
 	babel: {
-		plugins: [['import', { libraryName: 'antd', style: true }]]
+		plugins: [
+			[
+				'import',
+				{
+					libraryName: 'antd',
+					style: true
+				}
+			]
+		]
 	},
 	plugins: [
 		{
 			plugin: CracoLessPlugin,
 			options: {
-				// 修改antd的样式变量
 				lessLoaderOptions: {
 					lessOptions: {
 						modifyVars: {
@@ -51,4 +60,4 @@ const config = {
 	]
 }
 
-module.exports = config
+export default config

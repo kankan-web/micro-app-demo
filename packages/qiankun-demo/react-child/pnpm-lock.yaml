@@ -23,6 +23,9 @@ importers:
       '@types/jest':
         specifier: ^27.0.1
         version: 27.5.2
+      '@types/node':
+        specifier: ^16.7.13
+        version: 16.18.126
       '@types/react':
         specifier: ^18.0.0
         version: 18.3.18
@@ -32,9 +35,9 @@ importers:
       antd:
         specifier: ^4.23.4
         version: 4.24.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      garfish:
-        specifier: ^1.11.3
-        version: 1.19.3
+      qiankun:
+        specifier: ^2.8.1
+        version: 2.10.16
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -60,9 +63,6 @@ importers:
       '@craco/craco':
         specifier: ^6.4.5
         version: 6.4.5(@types/node@16.18.126)(react-scripts@5.0.1(@babel/plugin-syntax-flow@7.24.7(@babel/core@7.25.2))(@babel/plugin-transform-react-jsx@7.25.2(@babel/core@7.25.2))(@types/babel__core@7.20.5)(eslint@8.57.1)(react@18.3.1)(ts-node@10.9.2(@types/node@16.18.126)(typescript@4.9.5))(type-fest@0.21.3)(typescript@4.9.5))(typescript@4.9.5)
-      '@types/node':
-        specifier: ^16.11.63
-        version: 16.18.126
       babel-plugin-import:
         specifier: ^1.13.5
         version: 1.13.8
@@ -80,9 +80,6 @@ packages:
 
   '@adobe/css-tools@4.4.0':
     resolution: {integrity: sha512-Ff9+ksdQQB3rMncgqDK78uLznstjyfIf2Arnh22pW8kBpLs6rpKDwgnZT46hin5Hl1WzazzK64DOrhSwYpS7bQ==}
-
-  '@alioth-org/es-module-lexer@1.1.0':
-    resolution: {integrity: sha512-2GrWjl8Whptm2Za2Zx+z8dm8Dz62hLWy1KPYEyplil4m28c6OR900iHNrYAYXS9QFCO1tqMABrl1daj6Mt66QQ==}
 
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
@@ -960,27 +957,6 @@ packages:
   '@eslint/js@8.57.1':
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-
-  '@garfish/browser-snapshot@1.19.3':
-    resolution: {integrity: sha512-8XmrA/fin4wlAhvXpBetBqCsCYE/BEbauKRAVUipASZ5YRK9ooQuLcJA8KIBN7QuGROoepgCRmcDRAODk1Cdbw==}
-
-  '@garfish/browser-vm@1.19.3':
-    resolution: {integrity: sha512-LuLPt81IYy8LheZmqFRKixzO4DwFdfj9Z1UuSQe7EaJqwC3X8ot+dsUtyA1iAv0HypB2Int4KSxKaDu6OLN4CQ==}
-
-  '@garfish/core@1.19.3':
-    resolution: {integrity: sha512-BEIG5WXyPuLnuPggGy7JlRa7KfICViEs80f/xckOkvmH4DbJAfUCtOnfQR//ltffnQenA/nbBR3YoFv02YDIHw==}
-
-  '@garfish/hooks@1.19.3':
-    resolution: {integrity: sha512-cxbxZ7P0LFmExGkaze+CIQz0Be1dNqXbaRl2K5lZoD3YRXDjBZfMJS8i5/P7vaKuKm8u/67JxRJZxgV0YcDsBQ==}
-
-  '@garfish/loader@1.19.3':
-    resolution: {integrity: sha512-SUVfmb36ODRGBuT7ezQGYzsSvPHV6eL+MBDMu78lqBZUsarj//5HtodB7O4jh9LdsgAXQoITRb9zhizUmwHwrw==}
-
-  '@garfish/router@1.19.3':
-    resolution: {integrity: sha512-PttQ27K4R5dWNIlk+y2e+8V/sW6bCYP4YZtsEbHUG+sMp3axhSLnJsg5dg8VUhzqqA+Kamva2hAWeqkRbwpk0A==}
-
-  '@garfish/utils@1.19.3':
-    resolution: {integrity: sha512-FxVOCwEXTOANWKgnAMoTXccrGYgoRcfOPlJ+uCvitM/Jyx29egpUbUHbYabpJequGJkBQLr1/dwdwXTw2fngsg==}
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -2783,9 +2759,6 @@ packages:
     resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
     engines: {node: '>= 0.6'}
 
-  eventemitter2@6.4.9:
-    resolution: {integrity: sha512-JEPTiaOt9f04oa6NOkc4aH+nVp5I3wEjpHbIPqfgCdD5v5bUzy7xQqwcVO2aDQgOWhI28da57HksMrzK9HlRxg==}
-
   eventemitter3@4.0.7:
     resolution: {integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==}
 
@@ -2956,9 +2929,6 @@ packages:
 
   functions-have-names@1.2.3:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
-
-  garfish@1.19.3:
-    resolution: {integrity: sha512-PJ507no9bosjFdL2nPAx0qZFeV5ikuTzKe5yUFzex3k6ypflqlT8SkvBBVtPHqWHF5cug74asEa/PsnEwvwdOg==}
 
   gensync@1.0.0-beta.2:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
@@ -3198,6 +3168,9 @@ packages:
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
+
+  import-html-entry@1.17.0:
+    resolution: {integrity: sha512-2SDsRlGlE8bqdnGqsOyiDPEWlzJR0jNW4LWopnZl5QE1Yd0nJ7fykWo2GaKUF7Jq7pR0g3dElhuJHyamTt1gPQ==}
 
   import-local@3.2.0:
     resolution: {integrity: sha512-2SPlun1JUPWoM6t3F0dw0FkCF/jWY8kttcY4f599GLTSjh2OCuuhdTkJQsEcZzBqbXZGKMK2OqW1oZsjtf/gQA==}
@@ -4676,6 +4649,9 @@ packages:
 
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
+  qiankun@2.10.16:
+    resolution: {integrity: sha512-Q3tSVUrPnzx8ckEOKIoPnhb5LE28FPKyan/r6jEuGJGqTbIy+3rp6E2/KfU82ZI4yZpef9LFTrnxdj49jAEsmw==}
+
   qs@6.13.0:
     resolution: {integrity: sha512-+38qI9SOr8tfZ4QmJNplMUxqjbe7LKvvZgWdExBOmd+egZTtjLB67Gu0HRX3u/XOq7UU2Nx6nsjvS16Z9uwfpg==}
     engines: {node: '>=0.6'}
@@ -5309,6 +5285,9 @@ packages:
   signal-exit@4.1.0:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
+
+  single-spa@5.9.5:
+    resolution: {integrity: sha512-9SQdmsyz4HSP+3gs6PJzhkaMEg+6zTlu9oxIghnwUX3eq+ajq4ft5egl0iyR55LAmO/UwvU8NgIWs/ZyQMa6dw==}
 
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
@@ -6076,8 +6055,6 @@ packages:
 snapshots:
 
   '@adobe/css-tools@4.4.0': {}
-
-  '@alioth-org/es-module-lexer@1.1.0': {}
 
   '@alloc/quick-lru@5.2.0': {}
 
@@ -7180,58 +7157,6 @@ snapshots:
       - supports-color
 
   '@eslint/js@8.57.1': {}
-
-  '@garfish/browser-snapshot@1.19.3':
-    dependencies:
-      '@garfish/core': 1.19.3
-      '@garfish/utils': 1.19.3
-    transitivePeerDependencies:
-      - supports-color
-
-  '@garfish/browser-vm@1.19.3':
-    dependencies:
-      '@garfish/core': 1.19.3
-      '@garfish/hooks': 1.19.3
-      '@garfish/loader': 1.19.3
-      '@garfish/utils': 1.19.3
-    transitivePeerDependencies:
-      - supports-color
-
-  '@garfish/core@1.19.3':
-    dependencies:
-      '@alioth-org/es-module-lexer': 1.1.0
-      '@garfish/hooks': 1.19.3
-      '@garfish/loader': 1.19.3
-      '@garfish/utils': 1.19.3
-      eventemitter2: 6.4.9
-    transitivePeerDependencies:
-      - supports-color
-
-  '@garfish/hooks@1.19.3':
-    dependencies:
-      '@garfish/utils': 1.19.3
-    transitivePeerDependencies:
-      - supports-color
-
-  '@garfish/loader@1.19.3':
-    dependencies:
-      '@garfish/hooks': 1.19.3
-      '@garfish/utils': 1.19.3
-    transitivePeerDependencies:
-      - supports-color
-
-  '@garfish/router@1.19.3':
-    dependencies:
-      '@garfish/core': 1.19.3
-      '@garfish/utils': 1.19.3
-    transitivePeerDependencies:
-      - supports-color
-
-  '@garfish/utils@1.19.3':
-    dependencies:
-      debug: 4.3.7
-    transitivePeerDependencies:
-      - supports-color
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
@@ -9506,8 +9431,6 @@ snapshots:
 
   etag@1.8.1: {}
 
-  eventemitter2@6.4.9: {}
-
   eventemitter3@4.0.7: {}
 
   events@3.3.0: {}
@@ -9730,16 +9653,6 @@ snapshots:
       functions-have-names: 1.2.3
 
   functions-have-names@1.2.3: {}
-
-  garfish@1.19.3:
-    dependencies:
-      '@garfish/browser-snapshot': 1.19.3
-      '@garfish/browser-vm': 1.19.3
-      '@garfish/core': 1.19.3
-      '@garfish/router': 1.19.3
-      '@garfish/utils': 1.19.3
-    transitivePeerDependencies:
-      - supports-color
 
   gensync@1.0.0-beta.2: {}
 
@@ -9996,6 +9909,10 @@ snapshots:
     dependencies:
       parent-module: 1.0.1
       resolve-from: 4.0.0
+
+  import-html-entry@1.17.0:
+    dependencies:
+      '@babel/runtime': 7.25.6
 
   import-local@3.2.0:
     dependencies:
@@ -11671,6 +11588,13 @@ snapshots:
 
   q@1.5.1: {}
 
+  qiankun@2.10.16:
+    dependencies:
+      '@babel/runtime': 7.25.6
+      import-html-entry: 1.17.0
+      lodash: 4.17.21
+      single-spa: 5.9.5
+
   qs@6.13.0:
     dependencies:
       side-channel: 1.0.6
@@ -12537,6 +12461,8 @@ snapshots:
   signal-exit@3.0.7: {}
 
   signal-exit@4.1.0: {}
+
+  single-spa@5.9.5: {}
 
   sisteransi@1.0.5: {}
 

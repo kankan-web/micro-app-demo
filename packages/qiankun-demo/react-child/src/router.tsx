@@ -2,21 +2,18 @@ import { createHashRouter, createMemoryRouter, Outlet } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
 import React, { lazy } from 'react'
 
-type Mode = 'memory' | 'hash'
-
 const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
 const CssIsolation = lazy(() => import('@/views/CssIsolation'))
 const NavigateView = lazy(() => import('@/views/NavigateView'))
 const MicroAppView = lazy(() => import('@/views/MicroAppView'))
 const TabView = lazy(() => import('@/views/TabView'))
 
-const basename = '/'
+const basename = window.__POWERED_BY_QIANKUN__ ? '/reactApp' : '/'
 
 const routes: RouteObject[] = [
 	{
 		path: '/',
 		element: <Outlet />,
-		errorElement: <div>error</div>,
 		children: [
 			{ index: true, element: <CommunicationTest /> },
 			{
@@ -43,12 +40,10 @@ const routes: RouteObject[] = [
 	}
 ]
 
-export function createRouter(basename: string, mode: Mode = 'hash') {
-	return (mode === 'hash' ? createHashRouter : createMemoryRouter)(routes, {
-		basename
-	})
-}
+export const router = createHashRouter(routes, {
+	basename
+})
 
-const router = createRouter(basename)
-
-export default router
+export const memoryRouter = createMemoryRouter(routes, {
+	basename
+})
