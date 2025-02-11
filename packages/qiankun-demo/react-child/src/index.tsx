@@ -1,3 +1,4 @@
+import './public-path' //必须，否则报错
 import './reset.css'
 import reportWebVitals from './reportWebVitals'
 import React, { Suspense } from 'react'
@@ -10,7 +11,6 @@ import { router, memoryRouter } from '@/router'
 import type { User } from '@/stores/userSlice'
 import { setUser } from '@/stores/userSlice'
 
-debugger
 interface Prop {
 	container?: HTMLElement
 	path?: string
@@ -53,32 +53,51 @@ function render(props?: Prop) {
 			</Provider>
 		</React.StrictMode>
 	)
-	// 如果props有path，则使用memoryRouter
-	if (props?.path) {
-		//memoryRouter的作用：在微应用中，使用memoryRouter来实现路由导航
-		memoryRouter.navigate(props.path)
-	}
 }
 
-//-------------为了避免根 id #root 与其他的 DOM 冲突，需要限制查找范围。-------------------
+// 独立运行时
 if (!window.__POWERED_BY_QIANKUN__) {
 	render()
 }
 
-function changeUserListener(e: Event) {
-	store.dispatch(dispatch => {
-		dispatch(setUser((e as CustomEvent<User>).detail))
-	})
+/**
+ * bootstrap: 启动时调用
+ * qiankun 框架调用，在微前端应用启动时调用
+ * 可以在这里做一些初始化操作
+ * 调用时，会传入一个props对象，包含一些微前端应用的信息
+ * 应用启动时，会先调用bootstrap，然后调用mount
+ */
+export async function bootstrap() {
+	console.log('[react18] react app bootstraped')
+}
+/**
+ * mount: 挂载时调用
+ * qiankun 框架调用，在微前端应用挂载时调用
+ * 可以在这里做一些初始化操作
+ * 调用时，会传入一个props对象，包含一些微前端应用的信息
+ */
+export async function mount(props: Prop) {
+	window.addEventListener('changeUser', changeUserListener)
+	render(props)
 }
 
-export async function bootstrap() {}
-export async function mount(props: Prop) {
-	render(props)
-	window.addEventListener('changeUser', changeUserListener)
+//监听用户信息变化
+function changeUserListener(e: Event) {
+	const { detail } = e as CustomEvent<User> // 获取事件的detail
+	store.dispatch(setUser(detail)) // 设置用户信息
 }
+
+/**
+ * unmount: 卸载时调用
+ * qiankun 框架调用，在微前端应用卸载时调用
+ * 可以在这里做一些清理操作
+ * 调用时，会传入一个props对象，包含一些微前端应用的信息
+ */
 export async function unmount() {
-	root && root.unmount()
 	window.removeEventListener('changeUser', changeUserListener)
+	if (root) {
+		root.unmount()
+	}
 }
 
 reportWebVitals(console.log)

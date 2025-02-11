@@ -29,7 +29,6 @@ let lastHash = "";
 
 // 前置路由守卫
 router.beforeEach(async (to, from, next) => {
-  debugger;
   const { addRoutes } = useMenuStore();
   const { setUser } = useUserStore();
   if (!loadedInitData) {
@@ -61,7 +60,6 @@ let mounting = false; // 标记是否正在挂载微应用
 // 后置路由守卫，作用是根据：当前的hash值，判断是否需要挂载微应用
 //触发时机：在路由导航完成后，即在afterEach钩子中
 router.afterEach(async () => {
-  debugger;
   const { apps } = useAppStore();
   const { user } = useUserStore();
   lastHash = location.hash; // 更新上次的hash

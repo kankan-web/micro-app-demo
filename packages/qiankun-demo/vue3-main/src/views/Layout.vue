@@ -36,8 +36,8 @@
         </template>
       </el-menu>
     </el-aside>
-    <el-container>
-      <el-header>
+    <el-container class="right">
+      <el-header class="header">
         <el-row justify="space-between" align="middle" style="width: 100%">
           <el-col :span="1">
             <el-icon size="20" v-if="isCollapse" @click="changeCollapse"
@@ -148,6 +148,27 @@ const handleClickMenu = (item: Menu) => {
 :deep(.el-menu--collapse) {
   .el-sub-menu__title span {
     display: none;
+  }
+}
+.right {
+  height: 100vh;
+
+  .header {
+    background: #fff;
+    padding: 0 20px;
+
+    .trigger {
+      font-size: 20px;
+    }
+
+    .github {
+      font-size: 30px;
+      vertical-align: middle;
+    }
+  }
+  #child-app {
+    background-color: #fff;
+    padding: 20px;
   }
 }
 </style>
